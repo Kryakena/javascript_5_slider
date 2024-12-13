@@ -19,6 +19,40 @@ body {
     display: block;
 }
 
+.prev{
+    left: -70px;
+    position: absolute;
+    top: 50%;
+    font-size: 60px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    transition: transform 0.5s, color 0.2s;
+    cursor: pointer;
+}
+
+.next{
+    left: -70px;
+    position: absolute;
+    top: 50%;
+    font-size: 60px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    transition: transform 0.5s, color 0.2s;
+    cursor: pointer;
+}
+
+.prev:active{
+    color: aqua;
+}
+
+.next:active{
+    color: aqua;
+}
+
 .gallery {
     width: 1280px;
     height: 729px;

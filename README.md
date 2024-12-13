@@ -236,8 +236,51 @@ body {
 ```
 
 - чтобы избежать отображения пикселей предыдущего изображения в слайдере, добавляем в .carousel "font-size: 0px". 
-Но это работает, когда нет текста!
+Но это работает, когда нет текста! Если надо с текстом, то "font-size: 0px;" не пишем, а указываем изображения в HTML в виде не списка, 
+а в виде строки без пробела
 
 ```css
 font-size: 0px;
+```
+
+- застилизовать кнопки
+
+```css
+.prev{
+  left: -70px;
+  position: absolute;
+  top: 50%;
+  font-size: 60px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  transition: transform 0.5s, color 0.2s;
+  cursor: pointer;
+}
+
+.next{
+  left: -70px;
+  position: absolute;
+  top: 50%;
+  font-size: 60px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  transition: transform 0.5s, color 0.2s;
+  cursor: pointer;
+}
+```
+
+- чтобы активная кнопка меняла цвет
+
+```css
+.prev:active{
+  color: aqua;
+}
+
+.next:active{
+  color: aqua;
+}
 ```
