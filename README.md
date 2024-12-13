@@ -36,19 +36,67 @@
 <div id="carousel" class="carousel"></div>
 ```
 
-- внутри данного контейнера в разделе body создаем 2 кнопки "вперед" и "назад"
+- внутри данного контейнера в файле index.html в разделе body создаем 2 кнопки "вперед" и "назад"
 
 ```html
 <button class="arrow prev"> < </button>
 <button class="arrow next"> > </button>
 ```
 
-- чтобы вид стрелок был симпатичный, берем с сайта с символами юникод (пример: https://symbl.cc/ru) символы стрелок
+- чтобы вид стрелок был симпатичный, берем с сайта с символами юникод (пример: https://symbl.cc/ru) символы стрелок и вставляем в кнопки в файле index.html в разделе body
   ![2024-12-13_16-11-08](https://github.com/user-attachments/assets/46bd3288-8091-4da4-9570-93322677b3f4)
 
+```html
+<button class="arrow prev">⯇</button>
+<button class="arrow next">⯈</button>
+```
+
+- внутри контейнера с кнопками в файле index.html в разделе body создаем еще 1 контейнер со списком изображений. Изображения для удобства помещаем в папку "images"
 
 ```html
-<button class="arrow prev"> ⯇ </button>
-<button class="arrow next"> ⯈ </button>
+<div class="gallery">
+  <ul class="images">
+    <li><img src="images/1.jpg"></li>
+    <li><img src="images/2.jpg"></li>
+    <li><img src="images/3.jpg"></li>
+    <li><img src="images/4.jpg"></li>
+  </ul>
+</div>
 ```
+
+- в файле Slider_JS.js задаем нужную ширину и количество (счётчик) изображений, которые будут изначально выводится в нашей галерее
+
+```JS
+var width = 1280; //ширина изображения
+var count = 1; //изначально будет видна только 1 картинка
+```
+
+- сослаться на всю нашу карусель в файле Slider_JS.js
+
+```JS
+var carousel = document.getElementById('carousel');
+```
+
+- создать список изображений в файле Slider_JS.js, чтобы использовать в JS как 1 переменную.
+  Выбираем для этого переменную guerySelector, т.к. он возвращает соответствующий списку в HTML изображение.
+
+```JS
+var list = carousel.guerySelector('ul'); 
+//т.к. мы знаем, что у нас 1 ul список в HTML
+var listElements = carousel.querySelectorAll('li'); 
+//т.к. мы знаем, что у нас несколько изображений в списке li
+```
+
+- определить изначальную позицию наших картинок. Изначально она нулевая.
+
+```JS
+var position = 0;
+```
+
 3. Сдвигаем список
+
+- чтобы найти все элементы за тэгом внутри элемента, используют метод getElementsByTagName
+
+```JS
+var list = document.getElementsByTagName('li');
+```
