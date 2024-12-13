@@ -33,7 +33,7 @@ body {
 }
 
 .next{
-    left: -70px;
+    right: -70px;
     position: absolute;
     top: 50%;
     font-size: 60px;
@@ -65,7 +65,7 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
-    transition: margin-left 250ms; /*перемещение влево со скоростью 250 миллисекунд*/
+    transition: margin-left 500ms; /*перемещение влево со скоростью 500 миллисекунд*/
 }
 
 .gallery li {

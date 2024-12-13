@@ -54,6 +54,7 @@
 - внутри контейнера с кнопками в файле index.html в разделе body создаем еще 1 контейнер со списком изображений. Изображения для удобства помещаем в папку "images"
 
 ```html
+
 <div class="gallery">
   <ul class="images">
     <li><img src="images/1.jpg"></li>
@@ -78,10 +79,10 @@ var carousel = document.getElementById('carousel');
 ```
 
 - создать список изображений в файле Slider_JS.js, чтобы использовать в JS как 1 переменную.
-  Выбираем для этого переменную guerySelector, т.к. он возвращает соответствующий списку в HTML изображение.
+  Выбираем для этого переменную querySelector, т.к. он возвращает соответствующий списку в HTML изображение.
 
 ```JS
-var list = carousel.guerySelector('ul'); 
+var list = carousel.querySelector('ul'); 
 //т.к. мы знаем, что у нас 1 ul список в HTML
 var listElements = carousel.querySelectorAll('li'); 
 //т.к. мы знаем, что у нас несколько изображений в списке li
@@ -98,14 +99,14 @@ var position = 0;
 - чтобы найти все элементы за тэгом внутри элемента, используют метод getElementsByTagName
 
 ```JS
-var list = document.getElementsByTagName('li');
+var lis = document.getElementsByTagName('li');
 ```
 
 - добавляем цикл for, чтобы перебирать наши изображения
 
 ```JS
-for (var i = 0; i < list.length; i++) {
-  //list.length - длина списка.
+for (var i = 0; i < lis.length; i++) {
+  //lis.length - длина списка.
   //i++ - когда цикл мы прошли, дается команда пройти его ещё раз, если список не закончился
 }
 ```
@@ -151,7 +152,7 @@ lis[i].appendChild(span);
 ```JS
 carousel.querySelector('.prev').onclick = function() {
     position = Math.min(position + width * count, 0);
-}
+};
 ```
 
 - сместить слайдер влево на определенное количество пикселей
@@ -167,7 +168,7 @@ list.style.marginLeft = position + 'px';
 carousel.querySelector('.next').onclick = function() {
   position = Math.max(position - width * count, -width * (listElements.length - count));
   list.style.marginLeft = position + 'px';
-}
+};
 ```
 
 4. чтобы работал слайд красиво, нужно указать стили в файле Slider_CSS.css
@@ -223,7 +224,7 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
-  transition: margin-left 250ms; /*перемещение влево со скоростью 250 миллисекунд*/
+  transition: margin-left 500ms; /*перемещение влево со скоростью 500 миллисекунд*/
 }
 ```
 
@@ -260,7 +261,7 @@ font-size: 0px;
 }
 
 .next{
-  left: -70px;
+  right: -70px;
   position: absolute;
   top: 50%;
   font-size: 60px;
