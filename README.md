@@ -43,8 +43,10 @@
 <button class="arrow next"> > </button>
 ```
 
-- чтобы вид стрелок был симпатичный, берем с сайта с символами юникод (пример: https://symbl.cc/ru/unicode-table/#arrows) символы стрелок
-![2024-12-13_15-53-59](https://github.com/user-attachments/assets/81d4e678-fea2-4681-b64d-74108603d89a)
+- чтобы вид стрелок был симпатичный, берем с сайта с символами юникод (пример: https://symbl.cc/ru) символы стрелок
 
-
+```html
+<button class="arrow prev"> ⯇ </button>
+<button class="arrow next"> ⯈ </button>
+```
 3. Сдвигаем список
