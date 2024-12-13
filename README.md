@@ -208,8 +208,9 @@ body {
 
 ```css
 .gallery {
-  width: 1280px;
-  height: 729px;
+  /*менять размеры изображений по своему экрану монитора, т.к. это неадаптивный слайдер*/
+  width: 1100px;
+  height: 600px;
   overflow: hidden;
 }
 ```
