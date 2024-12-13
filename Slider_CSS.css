@@ -62,8 +62,8 @@ body {
 .gallery ul {
     height: 130px;
     width: 9999px;
-    margin: 0;
-    padding: 0;
+    margin: 0; /*внешний отступ*/
+    padding: 0; /*внутренний отступ*/
     list-style: none;
     transition: margin-left 500ms; /*перемещение влево со скоростью 500 миллисекунд*/
 }
