@@ -1,0 +1,39 @@
+body {
+    padding: 10px;
+    /*задать поле вокруг наших элементов*/
+    background: #1f1f1f;
+    /*задний фон черный*/
+}
+
+.carousel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0px; /*убирает пиксели предыдущего изображения в слайдере. Но это работает, когда нет текста!*/
+}
+
+.carousel img{
+    width: 1280px;
+    height: 729px;
+    display: block;
+}
+
+.gallery {
+    width: 1280px;
+    height: 729px;
+    overflow: hidden;
+}
+
+.gallery ul {
+    height: 130px;
+    width: 9999px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: margin-left 250ms; /*перемещение влево со скоростью 250 миллисекунд*/
+}
+
+.gallery li {
+    display: inline-block;
+}
