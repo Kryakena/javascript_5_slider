@@ -44,6 +44,8 @@
 ```
 
 - чтобы вид стрелок был симпатичный, берем с сайта с символами юникод (пример: https://symbl.cc/ru) символы стрелок
+  ![2024-12-13_16-11-08](https://github.com/user-attachments/assets/46bd3288-8091-4da4-9570-93322677b3f4)
+
 
 ```html
 <button class="arrow prev"> ⯇ </button>
