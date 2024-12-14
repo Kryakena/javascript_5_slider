@@ -288,3 +288,156 @@ font-size: 0px;
   color: aqua;
 }
 ```
+
+# Итог всего кода:
+
+1. файл Slider_CSS.css:
+
+```css
+body {
+  padding: 10px;
+  /*задать поле вокруг наших элементов*/
+  background: #1f1f1f;
+  /*задний фон черный*/
+}
+
+.carousel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0px; /*убирает пиксели предыдущего изображения в слайдере. Но это работает, когда нет текста!*/
+}
+
+.carousel img{
+  width: 1280px;
+  height: 729px;
+  display: block;
+}
+
+.prev{
+  left: -70px;
+  position: absolute;
+  top: 50%;
+  font-size: 60px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  transition: transform 0.5s, color 0.2s;
+  cursor: pointer;
+}
+
+.next{
+  right: -70px;
+  position: absolute;
+  top: 50%;
+  font-size: 60px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  transition: transform 0.5s, color 0.2s;
+  cursor: pointer;
+}
+
+.prev:active{
+  color: aqua;
+}
+
+.next:active{
+  color: aqua;
+}
+
+.gallery {
+  /*менять размеры изображений по своему экрану монитора, т.к. это неадаптивный слайдер*/
+  width: 1100px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.gallery ul {
+  height: 130px;
+  width: 9999px;
+  margin: 0; /*внешний отступ*/
+  padding: 0; /*внутренний отступ*/
+  list-style: none;
+  transition: margin-left 500ms; /*перемещение влево со скоростью 500 миллисекунд*/
+}
+
+.gallery li {
+  display: inline-block;
+}
+```
+
+2. файл index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Слайдер</title>
+    <link rel="stylesheet" href="Slider_CSS.css">
+</head>
+<body>
+<div id="carousel" class="carousel">
+    <button class="arrow prev">⯇</button>
+    <div class="gallery">
+        <ul class="images">
+            <li><img src="images/1.jpg"></li>
+            <li><img src="images/2.jpg"></li>
+            <li><img src="images/3.jpg"></li>
+            <li><img src="images/4.jpg"></li>
+        </ul>
+    </div>
+    <button class="arrow next">⯈</button>
+</div>
+<script src="Slider_JS.js"></script>
+</body>
+</html>
+```
+
+3. файл Slider_JS.js
+
+```JS
+var lis = document.getElementsByTagName('li');
+for (var i = 0; i < lis.length; i++) {
+  //lis.length - длина списка.
+  //i++ - когда цикл мы прошли, дается команда пройти его ещё раз, если список не закончился
+  lis[i].style.position = 'relative';
+  //lis[i] - элемент списка
+  //relative - расположение нашего элемента относительно исходного изначального места
+  var span = document.createElement('span');
+  //span - промежуток
+  span.style.cssText = 'position:absolute; left:0; top:0';
+  //делаем промежуток в виде текста, чтобы его потом незаметно спрятать и чтобы картинки не уехали в сторону
+  span.innerHTML = 1;
+  //промежуток между картинками делаем как 1 строчку
+  lis[i].appendChild(span);
+  //куда вставлять данный элемент
+}
+
+
+var width = 1280; //ширина изображения
+var count = 1; //изначально будет видна только 1 картинка
+
+var carousel = document.getElementById('carousel');
+var list = carousel.querySelector('ul');
+//т.к. мы знаем, что у нас 1 ul список в HTML
+var listElements = carousel.querySelectorAll('li');
+//т.к. мы знаем, что у нас несколько изображений в списке (li)
+
+var position = 0;
+
+carousel.querySelector('.prev').onclick = function() {
+  //смещаем картинки влево с помощью математики
+  position = Math.min(position + width * count, 0);
+  list.style.marginLeft = position + 'px';
+};
+
+carousel.querySelector('.next').onclick = function() {
+  position = Math.max(position - width * count, -width * (listElements.length - count));
+  list.style.marginLeft = position + 'px';
+};
+```
