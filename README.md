@@ -370,6 +370,11 @@ body {
 }
 ```
 
+![2024-12-14_10-22-09](https://github.com/user-attachments/assets/5f70c56f-82d5-4ece-822e-a3f1a193c588)
+
+![2024-12-14_10-22-44](https://github.com/user-attachments/assets/d971db2f-31a0-4d3b-9eb7-e42a7d214499)
+
+
 2. файл index.html
 
 ```html
@@ -397,6 +402,9 @@ body {
 </body>
 </html>
 ```
+
+![2024-12-14_10-23-51](https://github.com/user-attachments/assets/1e760988-380b-406e-8cce-9fdc01a2791b)
+
 
 3. файл Slider_JS.js
 
@@ -441,3 +449,5 @@ carousel.querySelector('.next').onclick = function() {
   list.style.marginLeft = position + 'px';
 };
 ```
+
+![2024-12-14_10-24-34](https://github.com/user-attachments/assets/85caf86d-cda0-4947-99b0-923a955bc6bd)
